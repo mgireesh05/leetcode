@@ -1,7 +1,7 @@
 package com.mgireesh;
 import java.util.ArrayList;
 
-public class app {
+public class App {
 
 	public static void main(String[] args) {
 		Solution sol = new Solution();
