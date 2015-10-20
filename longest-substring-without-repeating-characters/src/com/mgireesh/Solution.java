@@ -1,42 +1,35 @@
 package com.mgireesh;
 
+import java.util.HashMap;
+
 public class Solution {
 
 	public int lengthOfLongestSubstring(String s) {
-		int maxLen = 1;
-		int maxStartIdx = 0;
-		int curStartIdx = 0;
-		int curLen = 1;
 
-		if (s.length() <= 1) {
-			return s.length();
+		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+
+		if (s == null || s.length() == 0) {
+			return 0;
 		}
 
-		String sTemp = s.substring(0, 1);
+		if (s.length() == 1) {
+			return 1;
+		}
 
-		for (int i = 1; i < s.length(); i++) {
-			char newChar = s.charAt(i);
-			int found = sTemp.indexOf(newChar);
-			if (found < 0) {
-				curLen++;
-			} else {
-				if (curLen > maxLen) {
-					maxStartIdx = curStartIdx = sTemp.indexOf(newChar) + 1;
-					maxLen = curLen;
-				} else {
-					curLen = 0;
-					curStartIdx = sTemp.indexOf(newChar);
-				}
+		int rightPointer = 0;
+		int leftPointer = rightPointer - 1;
+		int answer = 0;
+
+		while (rightPointer != s.length()) {
+			Integer previousOccurrence = map.put(s.charAt(rightPointer), rightPointer);
+
+			if (previousOccurrence != null) {
+				leftPointer = Math.max(leftPointer, previousOccurrence);
 			}
-			sTemp = s.substring(0, i + 1);
+			answer = Math.max(answer, rightPointer - leftPointer);
+			rightPointer++;
 		}
 
-		if (curLen > maxLen) {
-			maxStartIdx = curStartIdx;
-			maxLen = curLen;
-		}
-
-		// System.out.println(s.substring(maxStartIdx, maxStartIdx + maxLen));
-		return maxLen;
+		return answer;
 	}
 }
