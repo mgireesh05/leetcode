@@ -3,9 +3,9 @@ package com.mgireesh;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/* Same solution will work for single-number-ii as well */
 public class Solution {
-	public int singleNumber(int[] nums) {
+	public int[] singleNumber(int[] nums) {
+		int[] answer = new int[2];
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
@@ -17,6 +17,8 @@ public class Solution {
 				list.remove(prevIndex);
 			}
 		}
-		return nums[list.get(0)];
+		answer[0] = nums[list.get(0)];
+		answer[1] = nums[list.get(1)];
+		return answer;
 	}
 }
