@@ -1,3 +1,4 @@
+package com.mgireesh;
 import java.util.HashMap;
 
 public class Solution {
