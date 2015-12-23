@@ -6,32 +6,46 @@ import java.util.PriorityQueue;
 public class MedianFinder {
 	PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();
 	PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(Collections.reverseOrder());
-	int count = 0;
+	double median = 0;
+
+	// From :
+	// https://disqus.com/home/discussion/geeksforgeeks/median_in_a_stream_of_integers_running_integers/#comment-1973339908
 
 	// Adds a number into the data structure.
 	public void addNum(int num) {
-		if (count % 2 == 0) {
-			minHeap.offer(num);
-		} else {
+
+		if (minHeap.size() == 0 && maxHeap.size() == 0) {
 			maxHeap.offer(num);
+			median = num;
+		} else {
+			if (num <= median) {
+				if (maxHeap.size() <= minHeap.size()) {
+					maxHeap.offer(num);
+				} else {
+					minHeap.offer(maxHeap.remove());
+					maxHeap.offer(num);
+				}
+			} else {
+				if (maxHeap.size() >= minHeap.size()) {
+					minHeap.offer(num);
+				} else {
+					maxHeap.offer(minHeap.remove());
+				}
+			}
+			if (minHeap.size() == maxHeap.size()) {
+				median = ((double) minHeap.peek() + maxHeap.peek()) / 2;
+			} else {
+				if (minHeap.size() > maxHeap.size()) {
+					median = minHeap.peek();
+				} else {
+					median = maxHeap.peek();
+				}
+			}
 		}
-		count++;
-		// System.out.println(minHeap);
-		// System.out.println(maxHeap);
 	}
 
 	// Returns the median of current data stream
 	public double findMedian() {
-		double median = 0;
-		if (minHeap.size() == maxHeap.size()) {
-			median = (double) (minHeap.peek() + maxHeap.peek()) / 2;
-		} else {
-			if (minHeap.size() > maxHeap.size()) {
-				// median =
-			} else {
-				// median =
-			}
-		}
 		return median;
 	}
 };
