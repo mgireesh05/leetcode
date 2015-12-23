@@ -1,5 +1,7 @@
 package com.mgireesh;
 
+import java.util.HashSet;
+
 public class Solution {
 	public int maxProduct(String[] words) {
 		int product = 0;
@@ -14,24 +16,15 @@ public class Solution {
 	}
 
 	public boolean isDistinct(String s1, String s2) {
-		// Arrays.sort(s1.toCharArray());
-		// Arrays.sort(s2.toCharArray());
-		String longStr = null;
-		String shortStr = null;
 
-		if (s1.length() < s2.length()) {
-			shortStr = s1;
-			longStr = s2;
-		} else {
-			shortStr = s2;
-			longStr = s1;
+		HashSet<Character> set = new HashSet<Character>();
+		for (int i = 0; i < s1.length(); i++) {
+			set.add(s1.charAt(i));
 		}
 
-		for (int i = 0; i < shortStr.length(); i++) {
-			for (int j = 0; j < longStr.length(); j++) {
-				if (shortStr.charAt(i) == longStr.charAt(j)) {
-					return false;
-				}
+		for (int i = 0; i < s2.length(); i++) {
+			if (set.contains(s2.charAt(i))) {
+				return false;
 			}
 		}
 
