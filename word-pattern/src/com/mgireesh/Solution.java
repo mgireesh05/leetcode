@@ -26,9 +26,6 @@ public class Solution {
 		HashMap<Character, String> fwdMap = new HashMap<Character, String>();
 		HashMap<String, Character> revMap = new HashMap<String, Character>();
 		for (int i = 0; i < pattern.length(); i++) {
-			if ((i >= list.size()) || (i >= pattern.length())) {
-				return false;
-			}
 			Character fKey = pattern.charAt(i);
 			String fVal = list.get(i);
 			String rKey = list.get(i);
@@ -39,11 +36,7 @@ public class Solution {
 					return false;
 				}
 			} else {
-				if (i < list.size()) {
-					fwdMap.put(fKey, fVal);
-				} else {
-					return false;
-				}
+				fwdMap.put(fKey, fVal);
 			}
 
 			if (revMap.containsKey(rKey)) {
@@ -51,11 +44,7 @@ public class Solution {
 					return false;
 				}
 			} else {
-				if (i < pattern.length()) {
-					revMap.put(rKey, rVal);
-				} else {
-					return false;
-				}
+				revMap.put(rKey, rVal);
 			}
 
 		}
