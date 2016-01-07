@@ -30,6 +30,7 @@ public class MedianFinder {
 					minHeap.offer(num);
 				} else {
 					maxHeap.offer(minHeap.remove());
+					minHeap.offer(num);
 				}
 			}
 			if (minHeap.size() == maxHeap.size()) {
@@ -48,7 +49,7 @@ public class MedianFinder {
 	public double findMedian() {
 		return median;
 	}
-};
+}
 
 // Your MedianFinder object will be instantiated and called as such:
 // MedianFinder mf = new MedianFinder();
