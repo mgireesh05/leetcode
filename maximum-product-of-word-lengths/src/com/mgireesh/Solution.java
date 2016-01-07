@@ -6,7 +6,7 @@ public class Solution {
 	public int maxProduct(String[] words) {
 		int product = 0;
 		for (int i = 0; i < words.length; i++) {
-			for (int j = 0; j < words.length; j++) {
+			for (int j = i + 1; j < words.length; j++) {
 				if (isDistinct(words[i], words[j])) {
 					product = Math.max(product, words[i].length() * words[j].length());
 				}
