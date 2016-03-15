@@ -1,37 +1,31 @@
 package com.mgireesh;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 public class Solution {
-	Queue<TreeNode> q = new LinkedList<TreeNode>();
+	Stack<TreeNode> stack = new Stack<TreeNode>();
 
 	public void flatten(TreeNode root) {
 		if (root == null) {
 			return;
 		}
 
-		flattenTree(root);
-		root = null;
-		TreeNode nxt = null;
-		while (!q.isEmpty()) {
-			TreeNode temp = q.remove();
-			if (root == null) {
-				root = temp;
-				nxt = root;
-			} else {
-				nxt.right = temp;
-				nxt = nxt.right;
+		System.out.println(root.val);
+		TreeNode left = root.left;
+		TreeNode right = root.right;
+		if (root.right != null) {
+			stack.push(root.right);
+		}
+		flatten(left);
+		flatten(right);
+		if (root.right != null) {
+			root.right = left;
+			root.left = null;
+		} else {
+			if (!stack.isEmpty()) {
+				root.right = stack.pop();
 			}
+			root.left = null;
 		}
-	}
-
-	private void flattenTree(TreeNode root) {
-		if (root == null) {
-			return;
-		}
-		q.add(root);
-		flattenTree(root.left);
-		flattenTree(root.right);
 	}
 }
