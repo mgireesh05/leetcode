@@ -16,12 +16,9 @@ public class Solution {
 		}
 		int mid = start + (end - start) / 2;
 		TreeNode root = new TreeNode(nums[mid]);
-		if (mid != 0) {
-			root.left = createBST(nums, start, mid - 1);
-		}
-		if (mid != nums.length) {
-			root.right = createBST(nums, mid + 1, end);
-		}
+		root.left = createBST(nums, start, mid - 1);
+		root.right = createBST(nums, mid + 1, end);
+
 		return root;
 	}
 
