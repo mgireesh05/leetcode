@@ -2,14 +2,8 @@
 
 import Cocoa
 
+let words = ["Hello", "Alaska", "Dad", "Peace"]
+let sol = Solution500()
+print(sol.findWords(words))
 
-var str = "Hello, playground"
 
-let root = TreeNode(3)
-root.left = TreeNode(9)
-root.right = TreeNode(20)
-root.right?.left = TreeNode(15)
-root.right?.right = TreeNode(7)
-
-let sol = Solution()
-print(sol.sumOfLeftLeaves(root))

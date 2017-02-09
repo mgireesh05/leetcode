@@ -4,10 +4,11 @@
 */
 
 
-public class Solution {
-	public init() {
+//Note: The number here denotes the problem id in leetcode. This is to avoid name conflict with other solution classes in the Swift playground.
+class Solution404 {
+	public init(){
 	}
-
+	
 	var arr = [Int]()
 	public func sumOfLeftLeaves(_ root: TreeNode?) -> Int {
 		findSum(root, isLeft: false)
@@ -20,22 +21,22 @@ public class Solution {
 
 	func findSum(_ root: TreeNode?, isLeft: Bool) {
 		if(root == nil){
-			return;
+			return
 		}
 
 		if(root?.left != nil){
-			findSum(root?.left, isLeft:true);
+			findSum(root?.left, isLeft:true)
 		}
 
 		if(root?.right != nil){
-			findSum(root?.right, isLeft:false);
+			findSum(root?.right, isLeft:false)
 		}
 
 		if(root?.left == nil && root?.right == nil){
 			if(isLeft){
-				arr.append((root?.val)!);
+				arr.append((root?.val)!)
 			}
-			return;
+			return
 		}
 	}
 }
