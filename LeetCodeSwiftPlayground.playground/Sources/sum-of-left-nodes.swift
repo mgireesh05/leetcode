@@ -5,7 +5,7 @@
 
 
 //Note: The number here denotes the problem id in leetcode. This is to avoid name conflict with other solution classes in the Swift playground.
-class Solution404 {
+public class Solution404 {
 	public init(){
 	}
 	

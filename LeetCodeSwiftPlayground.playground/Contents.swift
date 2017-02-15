@@ -2,8 +2,7 @@
 
 import Cocoa
 
-let words = ["Hello", "Alaska", "Dad", "Peace"]
-let sol = Solution500()
-print(sol.findWords(words))
+let sol = Solution412()
+print(sol.fizzBuzz(15))
 
 
