@@ -14,14 +14,14 @@ public class Solution508 {
 	public func findFrequentTreeSum(_ root: TreeNode?) -> [Int] {
 		
 		_ = traverse(root)
-        
+
 		let max = dict.values.max()
 		
 		var arr = [Int]()
 		for item in dict {
-            if(item.value == max) {
-                arr.append(item.key)
-            }
+			if(item.value == max) {
+				arr.append(item.key)
+			}
 		}
 		
 		return arr
