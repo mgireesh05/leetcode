@@ -1,13 +1,14 @@
 //: Playground - noun: a place where people can play
 
 import Cocoa
+
 let root = TreeNode(1)
-root.left = TreeNode(3)
-root.right = TreeNode(2)
-root.left?.left = TreeNode(5)
-root.left?.right = TreeNode(3)
-root.right?.right = TreeNode(9)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left?.left = TreeNode(4)
+root.right?.left = TreeNode(5)
+root.right?.right = TreeNode(6)
+root.right?.left?.left = TreeNode(7)
 
-var sol = Solution515()
-print(sol.largestValues(root))
-
+var sol = Solution513()
+print(sol.findBottomLeftValue(root))
