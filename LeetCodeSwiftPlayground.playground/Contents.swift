@@ -10,5 +10,5 @@ root.right?.left = TreeNode(5)
 root.right?.right = TreeNode(6)
 root.right?.left?.left = TreeNode(7)
 
-var sol = Solution513()
-print(sol.findBottomLeftValue(root))
+var sol = Solution508()
+print(sol.findFrequentTreeSum(root))
