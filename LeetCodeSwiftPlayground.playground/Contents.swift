@@ -3,17 +3,14 @@
 import Cocoa
 
 
-var sol = Solution530()
+var sol = Solution501()
 
 
-//543,384,652,null,445,null,699]
-//[1,null,5,3]
 var root: TreeNode? = TreeNode(1)
-//root?.left = TreeNode(0)
-root?.right = TreeNode(5)
-root?.right?.left = TreeNode(3)
-//root?.left?.right = TreeNode(445)
-//root?.right?.left = TreeNode(0)
-//root?.right?.right = TreeNode(699)
+root?.right = TreeNode(2)
+root?.right?.left = TreeNode(2)
+root?.right?.right = TreeNode(3)
+root?.right?.right?.right = TreeNode(3)
 
-print(sol.getMinimumDifference(root))
+
+print(sol.findMode(root))
