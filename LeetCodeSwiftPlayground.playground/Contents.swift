@@ -3,10 +3,14 @@
 import Cocoa
 
 
-var sol = Solution448()
+var sol = Solution451()
 
-//var arr = [4,3,2,7,8,2,3,1]
-var arr: [Int] = []
-print(sol.findDisappearedNumbers(arr))
-//print(sol.findDisappearedNumbers1(nums: &arr))
+var s1 = "tree"
+print(sol.frequencySort(s1))
+var s2 = "cccaaa"
+print(sol.frequencySort(s2))
+var s3 = "Aabb"
+print(sol.frequencySort(s3))
+var s4 = ""
+print(sol.frequencySort(s4))
 
