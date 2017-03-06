@@ -3,14 +3,13 @@
 import Cocoa
 
 
-var sol = Solution501()
+var sol = Solution520()
 
-
-var root: TreeNode? = TreeNode(1)
-root?.right = TreeNode(2)
-root?.right?.left = TreeNode(2)
-root?.right?.right = TreeNode(3)
-root?.right?.right?.right = TreeNode(3)
-
-
-print(sol.findMode(root))
+print(sol.detectCapitalUse("USA"))
+print(sol.detectCapitalUse("leetcode"))
+print(sol.detectCapitalUse("Google"))
+print(sol.detectCapitalUse("FlaG"))
+print(sol.detectCapitalUse("FFFFf"))
+print(sol.detectCapitalUse("fFFFF"))
+print(sol.detectCapitalUse("FfFFF"))
+print(sol.detectCapitalUse("mL"))
